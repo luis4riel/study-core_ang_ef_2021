@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using study.API.Data;
 using study.API.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace study.API.Controllers
 {
@@ -8,27 +10,24 @@ namespace study.API.Controllers
     [Route("api/[controller]")]
     public class EventController : ControllerBase
     {
-        public EventController()
+        private readonly DataContext context;
+        public EventController(DataContext context)
         {
+            this.context = context;
         }
 
         [HttpGet]
         public IEnumerable<Event> Get()
         {
             //request resource
-            return new Event[]
-            {
-                new Event()
-                {
-                    EventId = 1,
-                    EventDate = System.DateTime.Now.AddDays(5).ToShortDateString(),
-                    Lote = "1° lote",
-                    PeopleCount = 250,
-                    Place = "Lages",
-                    Theme = ".NET 5 and Angular 11",
-                    ImageUrl = "https://angular.io/assets/images/logos/angular/logo-nav@2x.png"
-                }
-            };
+            return this.context.Events;
+        }
+        
+        [HttpGet("{id}")]
+        public Event GetById(int id)
+        {
+            //request resource by Id
+            return this.context.Events.FirstOrDefault(evento => evento.EventId == id);
         }
 
         [HttpPost]
