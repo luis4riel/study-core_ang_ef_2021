@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "study.API", "study.API\study.API.csproj", "{08A8B26A-E803-4501-A33B-4DC706378934}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "study.API", "study.API\study.API.csproj", "{08A8B26A-E803-4501-A33B-4DC706378934}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{0650ADB9-6754-4D18-9125-437D46B7C671}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +20,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{08A8B26A-E803-4501-A33B-4DC706378934} = {0650ADB9-6754-4D18-9125-437D46B7C671}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE2F4A47-0294-49A4-AD0C-6A131396E99C}
