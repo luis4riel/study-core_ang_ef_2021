@@ -22,4 +22,8 @@
     <ProjectReference Include="..\study.Application\study.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>

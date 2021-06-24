@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using study.API.Data;
-using study.API.Models;
+using study.Repository;
+using study.Domain;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,8 +10,8 @@ namespace study.API.Controllers
     [Route("api/[controller]")]
     public class EventsController : ControllerBase
     {
-        private readonly DataContext context;
-        public EventsController(DataContext context)
+        private readonly EventsContext context;
+        public EventsController(EventsContext context)
         {
             this.context = context;
         }
@@ -27,7 +27,7 @@ namespace study.API.Controllers
         public Event GetById(int id)
         {
             //request resource by Id
-            return this.context.Events.FirstOrDefault(evento => evento.EventId == id);
+            return this.context.Events.FirstOrDefault(evento => evento.Id == id);
         }
 
         [HttpPost]
