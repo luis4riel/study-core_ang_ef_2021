@@ -31,8 +31,10 @@ namespace study.API
             services.AddControllers()
                     .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddScoped<IEventService, EventService>();
+            services.AddScoped<ISpeakerService, SpeakerService>();
             services.AddScoped<IBaseRepository, BaseRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
+            services.AddScoped<ISpeakerRepository, SpeakerRepository>();
             services.AddCors();
             services.AddSwaggerGen(c =>
             {
