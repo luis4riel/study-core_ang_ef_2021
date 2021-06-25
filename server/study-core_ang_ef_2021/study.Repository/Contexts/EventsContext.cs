@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using study.Domain;
 
-namespace study.Repository
+namespace study.Repository.Contexts
 {
     public class EventsContext : DbContext
     {

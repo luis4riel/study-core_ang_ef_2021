@@ -3,6 +3,7 @@ using study.Repository;
 using study.Domain;
 using System.Collections.Generic;
 using System.Linq;
+using study.Repository.Contexts;
 
 namespace study.API.Controllers
 {
