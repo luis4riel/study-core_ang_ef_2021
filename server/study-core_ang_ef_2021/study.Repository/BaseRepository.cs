@@ -11,6 +11,7 @@ namespace study.Repository
         public BaseRepository(EventsContext eventsContext)
         {
             _eventsContext = eventsContext;
+            _eventsContext.ChangeTracker.QueryTrackingBehavior = Microsoft.EntityFrameworkCore.QueryTrackingBehavior.NoTracking;
         }
 
         public void Add<T>(T entity) where T : class

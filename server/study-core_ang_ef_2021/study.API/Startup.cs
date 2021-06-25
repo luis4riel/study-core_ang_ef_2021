@@ -5,7 +5,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using study.Application.Interfaces;
+using study.Application.Services;
+using study.Repository;
 using study.Repository.Contexts;
+using study.Repository.Interfaces;
 
 namespace study.API
 {
@@ -24,7 +28,11 @@ namespace study.API
             services.AddDbContext<EventsContext>(
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
-            services.AddControllers();
+            services.AddControllers()
+                    .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddScoped<IEventService, EventService>();
+            services.AddScoped<IBaseRepository, BaseRepository>();
+            services.AddScoped<IEventRepository, EventRepository>();
             services.AddCors();
             services.AddSwaggerGen(c =>
             {

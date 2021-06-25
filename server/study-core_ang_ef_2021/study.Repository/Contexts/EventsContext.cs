@@ -15,6 +15,16 @@ namespace study.Repository.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SpeakerEvent>().HasKey(SE => new { SE.EventId, SE.SpeakerId });
+
+            modelBuilder.Entity<Event>()
+                .HasMany(e => e.SocialNetworks)
+                .WithOne(sn => sn.Event)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Speaker>()
+                .HasMany(s => s.SocialNetworks)
+                .WithOne(sn => sn.Speaker)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

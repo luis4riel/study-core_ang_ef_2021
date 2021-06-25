@@ -13,6 +13,7 @@ namespace study.Repository
         public EventRepository(EventsContext eventsContext)
         {
             _eventsContext = eventsContext;
+            _eventsContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
         public async Task<Event[]> GetAllEventsAsync(bool includeSpeaker)
